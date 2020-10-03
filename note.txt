@@ -1,0 +1,21 @@
+DB Structure
+-----------
+	
+	-Admin
+		- crud (categories,trainers,packages)
+		- categories
+			- name, photo
+
+		- trainers
+			- name, photo, phoneno, address
+
+		- packages
+			- name, price, day, discount, category_id
+
+	-Member
+		- Register (users,members)
+			-users (name,email,password)
+			-members (user_id,weight,phoneno,address)
+		- Join Packages
+			- memberpackages
+				- member_id,package_id,trainer_id,start_date,time
