@@ -12,6 +12,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}">
 
     <!-- CSS here -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slicknav.css')}}">
@@ -59,11 +62,30 @@
                                     <li><a href="{{asset('/packagepage')}}">Package</a></li>
                                     <li><a href="{{asset('/trainerpage')}}">Trainer</a></li>
                                     <li><a href="{{asset('/membershippage')}}">Membership</a></li>
-                                    <li><a href="{{asset('/checkoutpage')}}">Checkout</a></li>
-                                    <li><a href="{{asset('/contactpage')}}">Contact</a></li>
-                                    <li><a href="gallery.html">Register</a></li>
-                                    <li><a href="blog.html">Login</a></li>
+                                    <li><a href="{{asset('/checkoutpage')}}">Checkout</a></li> 
+
                                     
+                                     @guest
+
+                                     
+                                    <li><a href="{{asset('/register')}}">Register</a></li>
+                                    
+                                  
+                                    <li><a href="{{asset('/login')}}">Login</a></li>
+                                 
+                                    @else
+                                     <li><a href=""> {{ Auth::user()->name }}'s Account</a></li>
+                                     <span class="arrow_carrot-down">
+                                     <li>
+                                        <a href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out 
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                        </span>
+                                    </li>
+                                    @endif
+                                                               
                                         
                             </nav>
                         </div>          

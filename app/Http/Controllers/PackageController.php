@@ -27,8 +27,6 @@ class PackageController extends Controller
     public function create()
     {
         $categories=Category::all();
-        
-     
         return view('backend.package.create',compact('categories'));
     }
 

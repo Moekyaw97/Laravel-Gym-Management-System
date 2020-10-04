@@ -78,14 +78,7 @@
       </div>
      <ul class="app-menu">
 
-               <li>
-                    <a class="app-menu__item" href="{{route('member.index')}}">
-                        <i class="icofont-people"></i>
-                        <span class="app-menu__label">
-                           &nbsp; Membership
-                        </span>
-                    </a>
-                </li>
+              
 
                  <li>
                     <a class="app-menu__item" href="{{route('category.index')}}">
@@ -114,14 +107,7 @@
                     </a>
                 </li>
 
-                 <li>
-                    <a class="app-menu__item" href="#">
-                        <i class="icofont-address-book"></i>
-                        <span class="app-menu__label">
-                           &nbsp; Memberpackages
-                        </span>
-                    </a>
-                </li>
+                 
 
             {{--     <li>
                     <a class="app-menu__item {{ Request::segment(2) ==='customer' ? 'active' :'' }}" href="{{ route('backside.customer') }}">

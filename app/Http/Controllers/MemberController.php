@@ -9,6 +9,7 @@ use App\Membertype;
 use App\User;
 
 
+
 class MemberController extends Controller
 {
     /**
@@ -19,8 +20,8 @@ class MemberController extends Controller
     public function index()
     {
       
-        $members=Member::all();
-        return view('backend.member.index',compact('members'));
+        // $members=Member::all();
+        // return view('backend.member.index',compact('members'));
     }
 
     /**
@@ -30,8 +31,13 @@ class MemberController extends Controller
      */
     public function create()
     {
-        $members = Member::all();
-        return view('backend.member.create',compact('members'));
+        // $members = Member::all();
+        // $categories=Category::find($id);
+        // return view('frontend.form',compact('members','categories'));
+
+        $membertypes = Membertype::all();
+        return view('frontend.form',compact('membertypes'));
+
     }
 
     /**
@@ -46,35 +52,28 @@ class MemberController extends Controller
         $request->validate([
             "user_id" => "required",
             "weight" => "required",
-            "name" => "required",
-            "profile" => "required",
             "phoneno" => "required",
             "address" => "required",
+            "membertype_id"=>"required",
             
             
         ]);
-         // if include file, upload
-        if($request->file()) {
-            $fileName = time().'_'.$request->profile->getClientOriginalName(); // 1970 jan 1
-            $filePath = $request->file('profile')->storeAs('member_profile', $fileName, 'public');
-            $path = 'storage/'.$filePath;
-        }
+        
 
         // data store
         $member = new Member;
         $member->user_id= $request->user_id;
         $member->weight = $request->weight;
-        $member->name = $request->name;
-        $member->profile = $path;
         $member->phoneno = $request->phoneno;
         $member->address = $request->address;
+        $member->membertype_id = $request->membertype_id;
        
        
        
         $member->save();
 
         // return redirect
-        return redirect()->route('member.index');
+        return redirect()->route('frontend.checkout');
     }
 
     /**
@@ -111,38 +110,38 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-         //validation
-        $request->validate([
-            "user_id" => "required",
-            "weight" => "required",
-            "name" => "required",
-            "profile" => "required",
-            "phoneno" => "required",
-            "address" => "required",
+        //  //validation
+        // $request->validate([
+        //     "user_id" => "required",
+        //     "weight" => "required",
+        //     "name" => "required",
+        //     "profile" => "required",
+        //     "phoneno" => "required",
+        //     "address" => "required",
             
-        ]);
-         // if include file, upload
-        if($request->file()) {
-            $fileName = time().'_'.$request->profile->getClientOriginalName(); // 1970 jan 1
-            $filePath = $request->file('profile')->storeAs('member_profile', $fileName, 'public');
-            $path = 'storage/'.$filePath;
-        }else{
-            $path=$request->oldprofile;
-        }
+        // ]);
+        //  // if include file, upload
+        // if($request->file()) {
+        //     $fileName = time().'_'.$request->profile->getClientOriginalName(); // 1970 jan 1
+        //     $filePath = $request->file('profile')->storeAs('member_profile', $fileName, 'public');
+        //     $path = 'storage/'.$filePath;
+        // }else{
+        //     $path=$request->oldprofile;
+        // }
 
-        // data store
+        // // data store
      
-        $member->user_id= $request->user_id;
-        $member->weight = $request->weight;
-        $member->name = $request->name;
-        $member->profile = $path;
-        $member->phoneno = $request->phoneno;
-        $member->address = $request->address;
+        // $member->user_id= $request->user_id;
+        // $member->weight = $request->weight;
+        // $member->name = $request->name;
+        // $member->profile = $path;
+        // $member->phoneno = $request->phoneno;
+        // $member->address = $request->address;
         
-        $member->save();
+        // $member->save();
 
-        // return redirect
-        return redirect()->route('member.index');
+        // // return redirect
+        // return redirect()->route('member.index');
     }
 
     /**
@@ -153,7 +152,7 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
-        $member->delete();
-        return redirect()->route('member.index');
+        // $member->delete();
+        // return redirect()->route('member.index');
     }
 }
