@@ -18,8 +18,8 @@ class CreateMemberpackagesTable extends Migration
             $table->unsignedBigInteger('member_id');
             $table->unsignedBigInteger('package_id');
             $table->unsignedBigInteger('trainer_id');
-            $table->timestamp('start_date')->nullable();
-            $table->timestamp('time')->useCurrent();
+            $table->date('start_date');
+            $table->string('time');
 
             $table->timestamps();
 

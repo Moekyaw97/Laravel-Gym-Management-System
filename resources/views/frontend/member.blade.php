@@ -33,11 +33,7 @@
                
                   
  
-                @php
-               $membertype1 =1;
-               $membertype2 =2;
-               $membertype3 =3;
-               @endphp
+               
 
                   <!-- Courses area start -->
                     <section class="pricing-area section-padding40 fix">
@@ -91,7 +87,7 @@
                                 </div>
                             </section>
 
-                             {{-- Error --}}
+                {{-- Error --}}
               @if ($errors->any())
               <div class="alert alert-danger">
                   <ul>

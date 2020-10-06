@@ -27,7 +27,7 @@ Route::get('/packageformpage','MainController@packageform')->name('packageformpa
 
 Route::post('/packagepage','MainController@package')->name('packagepage');
 
-Route::get('/packagedetailpage','MainController@packagedetail')->name('packagedetailpage');
+Route::get('//mypackagepage','MainController@mypackage')->name('mypackagepage');
 
 Route::get('/trainerpage','MainController@trainer')->name('trainerpage');
 

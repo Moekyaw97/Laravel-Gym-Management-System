@@ -18,7 +18,16 @@
     </div>
     <!-- Hero End -->
    
-
+    {{-- Error --}}
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <form method="post" action="{{route('packagepage')}}" enctype="multipart/form-data">
                @csrf
                 @php 
@@ -41,6 +50,8 @@
     <section class="pricing-area section-padding40 fix">
         <div class="container">
             <div class="row mt-5">
+
+
 <div class="col-lg-12 col-md-12 col-sm-12 mt-5 mb-5">
 <select class="form-control" name="package_id" placeholder="Packages">
 @foreach($packages as $row)
@@ -67,9 +78,9 @@
  @endforeach
 
 <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
-  <select class="form-control" name="package_id" placeholder="Packages">
-    @foreach($trainers as $row)
-    <option value="{{$row->id}}">{{$row->name}}</option>
+  <select class="form-control" name="trainer_id" placeholder="Packages">
+    @foreach($trainers as $trainer)
+    <option value="{{$trainer->id}}">{{$trainer->name}}</option>
     @endforeach
 </select>
 </div>
@@ -77,16 +88,16 @@
 
 
 
- @foreach($trainers as $row)
+ @foreach($trainers as $trainer)
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                         <div class="properties__card">
                             <div>
-                                <img src="{{asset($row->photo)}}" alt="Trainer Photo" class="" height="200" width="200">
+                                <img src="{{asset($trainer->photo)}}" alt="Trainer Photo" class="" height="200" width="200">
                             </div>
                             <div class="properties__caption">
-                                <span class="month">{{$row->name}}</span>
-                              <p class="mb-25">{{$row->address}}</p>
+                                <span class="month">{{$trainer->name}}</span>
+                              <p class="mb-25">{{$trainer->address}}</p>
                             
                             </div>
                         </div>
@@ -98,24 +109,26 @@
         </div>
     </section>
 
+    <div class="row justify-content-center">
 
-    @php 
-    $std = 2020;
-    $time = 12;
-    @endphp
-    <div class="form-group mt-10">
-        <input type="hidden" name="start_date" value="{{$std}}"placeholder=""
-        onfocus="this.placeholder = ''" onblur="this.placeholder = ''" required
+   <div class="col-lg-2 col-md-6 col-sm-6">
+        <input type="date" name="start_date" placeholder="Date"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Date'" required
         class="single-input">
     </div>
-     <div class="form-group mt-10">
-        <input type="hidden" name="time" value="{{$time}}"placeholder=""
-        onfocus="this.placeholder = ''" onblur="this.placeholder = ''" required
-        class="single-input">
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <select class="form-control" name="time" placeholder="Days">
+            <option value="30">30 Days</option>
+            <option value="60">60 Days</option>
+            <option value="90">90 Days</option>
+        </select>
+    </div>
     </div>
 
-
-    <button type="submit" class="btn btn-success float-right mt-5">Continue</button>
+    <div class="col-lg-9 col-md-6 col-sm-6 mt-5">
+          <button type="submit" class="btn btn-success float-right">Continue</button>
+    </div>
+  
     </form>
     <!-- Courses area End -->
 @endsection

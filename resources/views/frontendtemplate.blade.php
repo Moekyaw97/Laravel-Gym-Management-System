@@ -59,10 +59,12 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="{{asset('/')}}">Home</a></li>
-                                    <li><a href="{{asset('/packagedetailpage')}}">Package</a></li>
+                                    
                                     <li><a href="{{asset('/trainerpage')}}">Trainer</a></li>
                                     <li><a href="{{asset('/membershippage')}}">Membership</a></li>
-                                    <li><a href="{{asset('/checkoutpage')}}">Checkout</a></li> 
+                                    <li><a href="{{asset('/mypackagepage')}}">My Package</a></li>
+                                    <li><a href="{{asset('/checkoutpage')}}">Checkout</a></li>
+                                    
 
                                     
                                      @guest
