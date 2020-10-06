@@ -51,7 +51,7 @@ class LoginController extends Controller
                     return '/';
                 break; 
             case 'member':
-                    return '/membershippage';
+                    return '/packageformpage';
                 break; 
         }
 }

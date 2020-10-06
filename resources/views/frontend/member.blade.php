@@ -29,10 +29,71 @@
     			<div class="typography">
     				<h1>Pls fill your information</h1>
     			</div>
+             
+               
+                  
+ 
+                @php
+               $membertype1 =1;
+               $membertype2 =2;
+               $membertype3 =3;
+               @endphp
 
-                {{-- Error --}}
-                @if ($errors->any())
-                <div class="alert alert-danger">
+                  <!-- Courses area start -->
+                    <section class="pricing-area section-padding40 fix">
+                        <div class="container">         
+                            <div class="card">
+                                <div class="radio-group row justify-content-between px-3" name="membertype_id">
+
+                                  <div class="col-lg-4 col-md-6 col-sm-6 radio selected">
+                                    <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                                            <div class="properties__card ">
+                                                 <div class="about-icon">
+                                                            <img src="assets/img/icon/price.svg" alt="">
+                                                        </div>
+                                                        <div class="properties__caption">
+                                                            <span class="month">Standard</span>
+                                                            <p class="mb-25">$0  <span>(VIP)</span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="col-lg-4 col-md-6 col-sm-6 radio" >
+                                            <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                                                    <div class="properties__card">
+                                                        <div class="about-icon">
+                                                            <img src="assets/img/icon/price.svg" alt="">
+                                                        </div>
+                                                        <div class="properties__caption">
+                                                            <span class="month">Gold</span>
+                                                            <p class="mb-25">$60  <span>(VIP)</span></p>    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-6 col-sm-6 radio" name="membertype_id">
+                                                <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                                                        <div class="properties__card">
+                                                            <div class="about-icon">
+                                                                <img src="assets/img/icon/price.svg" alt="">
+                                                            </div>
+                                                            <div class="properties__caption">
+                                                                <span class="month">Diamond</span>
+                                                                <p class="mb-25">$90  <span>(VVIP)</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                             {{-- Error --}}
+              @if ($errors->any())
+              <div class="alert alert-danger">
                   <ul>
                     @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -41,172 +102,56 @@
             </div>
             @endif
 
-            <form method="post" action="{{route('member.store')}}" enctype="multipart/form-data">
-                @csrf
-                    <!-- Courses area start -->
-                    <section class="pricing-area section-padding40 fix">
-                        <div class="container">         
-                            <div class="card">
-                                <div class="radio-group row justify-content-between px-3">
+            <form method="post" action="{{route('memberpage')}}" enctype="multipart/form-data">
+               @csrf
 
-                                  <div class="col-lg-4 col-md-6 col-sm-6 radio selected">
-                                    <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                                       
-                                            <div class="properties__card ">
-                                                
+               @php
+               $membertype1 =1;
+               $membertype2 =2;
+               $membertype3 =3;
+               @endphp
 
-                                                <div class="form-group">
-                                                  <label for="InputMembertype">Membertypes</label>
-                                                  <select name="membertype_id" class="form-control">
-                                                    <optgroup label="Choose Membertypes">
-                                                      @foreach($membertypes as $row)
-                                                      <option value="{{$row->id}}">{{$row->name}}</option>
-                                                      @endforeach
-                                                  </optgroup>
-                                              </select>
-                                          </div>
-                                                
+               <div class="form-group mt-10">
+                  <select class="form-control" name="membertype_id" placeholder="Membertypes">
+                    <option value="{{$membertype1}}">Standard</option>
+                    <option value="{{$membertype2}}">Gold</option>
+                    <option value="{{$membertype3}}">Diamond</option>
+                </select>
+            </div>
+                          
+               
+                @php 
+                $auth = Auth::user();
+                $userid = $auth->id;
+                @endphp
+                        <div class="form-group mt-10">
+                            <input type="hidden" name="user_id" value="{{$userid}}"placeholder="Membertypes"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Membertypes'" required
+                            class="single-input">
+                        </div>
 
-
-                                                    </div>
-                                                </div>
-                                            </div>  
-
-                                       
-
-
-                                        <div class="col-lg-4 col-md-6 col-sm-6 radio">
-                                            <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                                               
-                                                    <div class="properties__card">
-                                                        <div class="about-icon">
-                                                            <img src="assets/img/icon/price.svg" alt="">
-                                                        </div>
-                                                        <div class="properties__caption">
-                                                            <span class="month">Gold</span>
-                                                            <p class="mb-25">$30  <span>(VIP)</span></p>
-                                                            <div class="single-features">
-                                                                <div class="features-icon">
-                                                                    <img src="assets/img/icon/check.svg" alt="">
-                                                                </div>
-                                                                <div class="features-caption">
-                                                                    <p>Pool</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="single-features">
-                                                                <div class="features-icon">
-                                                                    <img src="assets/img/icon/check.svg" alt="">
-                                                                </div>
-                                                                <div class="features-caption">
-                                                                    <p>Limited equipments</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="single-features">
-                                                                <div class="features-icon">
-                                                                    <img src="assets/img/icon/check.svg" alt="">
-                                                                </div>
-                                                                <div class="features-caption">
-                                                                    <p>Personal trainer</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="single-features">
-                                                                <div class="features-icon">
-                                                                    <img src="assets/img/icon/check.svg" alt="">
-                                                                </div>
-                                                                <div class="features-caption">
-                                                                    <p>Zumba and Yoga classes are only available</p>
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-lg-4 col-md-6 col-sm-6 radio">
-                                                <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                                                  
-                                                        <div class="properties__card">
-                                                            <div class="about-icon">
-                                                                <img src="assets/img/icon/price.svg" alt="">
-                                                            </div>
-                                                            <div class="properties__caption">
-                                                                <span class="month">Diamond</span>
-                                                                <p class="mb-25">$90  <span>(VVIP)</span></p>
-                                                                <div class="single-features">
-                                                                    <div class="features-icon">
-                                                                        <img src="assets/img/icon/check.svg" alt="">
-                                                                    </div>
-                                                                    <div class="features-caption">
-                                                                        <p>Pool</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="single-features">
-                                                                    <div class="features-icon">
-                                                                        <img src="assets/img/icon/check.svg" alt="">
-                                                                    </div>
-                                                                    <div class="features-caption">
-                                                                        <p>Unlimited equipments</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="single-features">
-                                                                    <div class="features-icon">
-                                                                        <img src="assets/img/icon/check.svg" alt="">
-                                                                    </div>
-                                                                    <div class="features-caption">
-                                                                        <p>Personal trainer</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="single-features">
-                                                                    <div class="features-icon">
-                                                                        <img src="assets/img/icon/check.svg" alt="">
-                                                                    </div>
-                                                                    <div class="features-caption">
-                                                                        <p>All classes are available</p>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                           
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </section>
-
-        				<div class="mt-10">
+        				<div class="form-group mt-10">
         					<input type="text" name="weight" placeholder="Weight in lbs"
         					onfocus="this.placeholder = ''" onblur="this.placeholder = 'Weight in lbs'" required
         					class="single-input">
         				</div>
         				
-        				<div class="mt-10">
-        					<input type="text" name="phone_no" placeholder="Phone No"
+        				<div class="form-group mt-10">
+        					<input type="text" name="phoneno" placeholder="Phone No"
         					onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone No'" required
         					class="single-input">
         				</div>
 
-        				<div class="mt-10">
+        				<div class="form-group mt-10">
         					<input type="text" name="address" placeholder="Address"
         					onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required
         					class="single-input">
         				</div>
 
-                       
-        				<div class="button-group-area mt-40">
-        					<a href="{{asset('/membertypepage')}}" class="genric-btn danger radius">Continue</a>
-        				</div>
+                         <button type="submit" class="btn btn-success">Create</button>
 
+                       
+        				
 
 
     			</form>

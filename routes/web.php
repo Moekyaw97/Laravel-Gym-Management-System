@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/getmember', function () {
+//     return view('frontend.member');
+// });
 
 Auth::routes();
 
@@ -23,8 +23,11 @@ Route::get('/','MainController@main')->name('homepage');
 
 
 
+Route::get('/packageformpage','MainController@packageform')->name('packageformpage');
 
-Route::get('/packagepage','MainController@package')->name('packagepage');
+Route::post('/packagepage','MainController@package')->name('packagepage');
+
+Route::get('/packagedetailpage','MainController@packagedetail')->name('packagedetailpage');
 
 Route::get('/trainerpage','MainController@trainer')->name('trainerpage');
 
@@ -35,7 +38,11 @@ Route::get('contactpage','MainController@contact')->name('contactpage');
 Route::get('/registerpage','MainController@register')->name('registerpage');
 
 // Route::get('/formpage/{id}','MainController@form')->name('formpage');
-Route::get('/memberpage/{id}','MainController@member')->name('memberpage');
+Route::get('/memberformpage','MainController@memberform')->name('memberformpage');
+
+Route::post('/memberpage','MainController@member')->name('memberpage');
+
+
 // Route::resource('/member/{id}','MemberController');
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -52,6 +59,9 @@ Route::get('/membertypepage','MainController@membertype')->name('membertypepage'
     Route::get('/checkoutpage','MainController@checkout')->name('checkoutpage');
 
 // });
+
+
+Route::resource('memberpakage','MemberpackageController');
 
 Route::resource('category','CategoryController');
 
