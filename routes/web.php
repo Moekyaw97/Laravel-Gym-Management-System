@@ -17,17 +17,21 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.member');
 // });
 
+
+
+
+
+
+
+
+//normal user
+
+
 Auth::routes();
 
 Route::get('/','MainController@main')->name('homepage');
 
-
-
-Route::get('/packageformpage','MainController@packageform')->name('packageformpage');
-
-Route::post('/packagepage','MainController@package')->name('packagepage');
-
-Route::get('//mypackagepage','MainController@mypackage')->name('mypackagepage');
+Route::get('/mypackagepage/{id}','MainController@mypackage')->name('mypackagepage');
 
 Route::get('/trainerpage','MainController@trainer')->name('trainerpage');
 
@@ -35,33 +39,43 @@ Route::get('/membershippage','MainController@membership')->name('membershippage'
 
 Route::get('contactpage','MainController@contact')->name('contactpage');
 
-Route::get('/registerpage','MainController@register')->name('registerpage');
-
-// Route::get('/formpage/{id}','MainController@form')->name('formpage');
-Route::get('/memberformpage','MainController@memberform')->name('memberformpage');
-
-Route::post('/memberpage','MainController@member')->name('memberpage');
-
-
-// Route::resource('/member/{id}','MemberController');
+// Route::get('/registerpage','MainController@register')->name('registerpage');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/membertypepage','MainController@membertype')->name('membertypepage');
 
-// Route::group(['middleware' => ['role:member']], function () {
+
+
+
+
+
+Route::get('/memberformpage','MainController@memberform')->name('memberformpage');
+
+Route::post('/memberpage','MainController@member')->name('memberpage');
+
+Route::get('/packageformpage','MainController@packageform')->name('packageformpage');
+
+Route::post('/packagepage','MainController@package')->name('packagepage');
+
+ Route::get('/checkoutpage','MainController@checkout')->name('checkoutpage');
+
+Route::group(['middleware' => ['role:member']], function () {
+
 
 	
 
 	
 
-    Route::get('/choosetrainerpage','MainController@choosetrainer')->name('choosetrainerpage');
-    Route::get('/checkoutpage','MainController@checkout')->name('checkoutpage');
+   
 
-// });
+});
+
+Route::group(['middleware' => ['role:admin']], function () {
 
 
-Route::resource('memberpakage','MemberpackageController');
+
+Route::resource('memberpackage','MemberpackageController');
 
 Route::resource('category','CategoryController');
 
@@ -70,3 +84,4 @@ Route::resource('trainer','TrainerController');
 Route::resource('package','PackageController');
 
 
+});

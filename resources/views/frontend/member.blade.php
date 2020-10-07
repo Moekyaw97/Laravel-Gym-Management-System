@@ -29,65 +29,7 @@
     			<div class="typography">
     				<h1>Pls fill your information</h1>
     			</div>
-             
-               
-                  
- 
-               
 
-                  <!-- Courses area start -->
-                    <section class="pricing-area section-padding40 fix">
-                        <div class="container">         
-                            <div class="card">
-                                <div class="radio-group row justify-content-between px-3" name="membertype_id">
-
-                                  <div class="col-lg-4 col-md-6 col-sm-6 radio selected">
-                                    <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                                            <div class="properties__card ">
-                                                 <div class="about-icon">
-                                                            <img src="assets/img/icon/price.svg" alt="">
-                                                        </div>
-                                                        <div class="properties__caption">
-                                                            <span class="month">Standard</span>
-                                                            <p class="mb-25">$0  <span>(VIP)</span></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-6 radio" >
-                                            <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                                                    <div class="properties__card">
-                                                        <div class="about-icon">
-                                                            <img src="assets/img/icon/price.svg" alt="">
-                                                        </div>
-                                                        <div class="properties__caption">
-                                                            <span class="month">Gold</span>
-                                                            <p class="mb-25">$60  <span>(VIP)</span></p>    
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-6 radio" name="membertype_id">
-                                                <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                                                        <div class="properties__card">
-                                                            <div class="about-icon">
-                                                                <img src="assets/img/icon/price.svg" alt="">
-                                                            </div>
-                                                            <div class="properties__caption">
-                                                                <span class="month">Diamond</span>
-                                                                <p class="mb-25">$90  <span>(VVIP)</span></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                           
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-
-                {{-- Error --}}
               @if ($errors->any())
               <div class="alert alert-danger">
                   <ul>
@@ -101,24 +43,97 @@
             <form method="post" action="{{route('memberpage')}}" enctype="multipart/form-data">
                @csrf
 
-               @php
+
+
+
+<div class="form-group mt-10 mb-5">
+
+                @php
                $membertype1 =1;
                $membertype2 =2;
                $membertype3 =3;
                @endphp
-
-               <div class="form-group mt-10">
-                  <select class="form-control" name="membertype_id" placeholder="Membertypes">
-                    <option value="{{$membertype1}}">Standard</option>
-                    <option value="{{$membertype2}}">Gold</option>
-                    <option value="{{$membertype3}}">Diamond</option>
-                </select>
+<div class="pricing-area section-padding40 fix">
+ <div class="container">
+  <div class="row">
+    
+      <div class="col-md-4 col-lg-4 col-sm-4">
+        <label>
+          <input type="radio" name="membertype_id" class="card-input-element" value="{{$membertype1}}" checked="checked">
+          <div class="panel panel-default card-input">
+            <div class="properties__card ">
+                <div class="about-icon">
+                    <img src="assets/img/icon/price.svg" alt="">
+                </div>
+                <div class="properties__caption">
+                    <span class="month">Standard</span>
+                    <p class="mb-25">$0  <span>(VIP)</span></p>
+                </div>
             </div>
+        </div>
+    </label>
+</div>
+
+<div class="col-md-4 col-lg-4 col-sm-4">
+    <label>
+      <input type="radio" name="membertype_id" class="card-input-element" value="{{$membertype2}}">          
+      <div class="panel panel-default card-input">             
+        <div class="properties__card ">
+            <div class="about-icon">
+                <img src="assets/img/icon/price.svg" alt="">
+            </div>
+            <div class="properties__caption">
+                <span class="month">Gold</span>
+                <p class="mb-25">$60  <span>(VIP)</span></p>    
+            </div>
+        </div> 
+    </div>
+</label>
+</div>
+
+<div class="col-md-4 col-lg-4 col-sm-4">
+    <label>
+      <input type="radio" name="membertype_id" class="card-input-element" value="{{$membertype3}}">
+      <div class="panel panel-default card-input">
+        <div class="properties__card ">
+            <div class="about-icon">
+                <img src="assets/img/icon/price.svg" alt="">
+            </div>
+            <div class="properties__caption">
+                <span class="month">Diamond</span>
+                <p class="mb-25">$90  <span>(VVIP)</span></p>
+            </div>
+        </div>
+    </div>
+</label>
+</div>
+    </div>
+   </div>
+ </div>
+</div>
+
+               <div class="form-group mt-10 mt-5">
+                <input type="text" name="name" placeholder="Username"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required
+                class="single-input">
+               </div>
+
+                <div class="form-group mt-10">
+                <input type="email" name="email" placeholder="Email"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required
+                class="single-input">
+               </div>
+
+                <div class="form-group mt-10">
+                <input type="password" name="password" placeholder="Password"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required
+                class="single-input">
+               </div>
                           
                
                 @php 
-                $auth = Auth::user();
-                $userid = $auth->id;
+                use App\User;
+                $userid = 1;
                 @endphp
                         <div class="form-group mt-10">
                             <input type="hidden" name="user_id" value="{{$userid}}"placeholder="Membertypes"
@@ -145,8 +160,7 @@
         				</div>
 
                          <button type="submit" class="btn btn-success">Create</button>
-
-                       
+                         
         				
 
 

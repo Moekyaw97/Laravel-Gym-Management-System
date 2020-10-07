@@ -62,7 +62,8 @@
                                     
                                     <li><a href="{{asset('/trainerpage')}}">Trainer</a></li>
                                     <li><a href="{{asset('/membershippage')}}">Membership</a></li>
-                                    <li><a href="{{asset('/mypackagepage')}}">My Package</a></li>
+                                   {{--  <li><a href="{{asset('/membertypepage')}}">Package</a></li> --}}
+                                    
                                     <li><a href="{{asset('/checkoutpage')}}">Checkout</a></li>
                                     
 
@@ -70,12 +71,13 @@
                                      @guest
 
                                      
-                                    <li><a href="{{asset('/register')}}">Register</a></li>
+                                    <li><a href="{{asset('/memberformpage')}}">Register</a></li>
                                     
                                   
                                     <li><a href="{{asset('/login')}}">Login</a></li>
                                  
                                     @else
+                                    <li><a href="{{route( 'mypackagepage',Auth::user()->id )}}">My Package</a></li>
                                      <li><a href=""> {{ Auth::user()->name }}'s Account</a></li>
                                      <span class="arrow_carrot-down">
                                      <li>

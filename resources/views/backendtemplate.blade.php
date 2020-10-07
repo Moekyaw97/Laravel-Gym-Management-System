@@ -107,29 +107,15 @@
                     </a>
                 </li>
 
-                 
-
-            {{--     <li>
-                    <a class="app-menu__item {{ Request::segment(2) ==='customer' ? 'active' :'' }}" href="{{ route('backside.customer') }}">
-                        <i class="app-menu__icon icofont-users-social"></i>
+                <li>
+                    <a class="app-menu__item" href="{{route('memberpackage.index')}}">
+                        <i class="icofont-money"></i>
                         <span class="app-menu__label">
-                            Customer
+                          &nbsp;  Members
                         </span>
                     </a>
                 </li>
-
-                <li>
-                    <a class="app-menu__item {{ Request::segment(2) ==='brand' ? 'active' :'' }}" href="{{ route('backside.brand.index') }}">
-                        <i class="app-menu__icon icofont-ui-tag"></i>
-                        <span class="app-menu__label">
-                            Brands 
-                        </span>
-                    </a>
-                </li> --}}
-
-              
-                
-            </ul>
+              </ul>
     </aside>
 
      <main class="app-content">

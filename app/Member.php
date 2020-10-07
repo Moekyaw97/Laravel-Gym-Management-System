@@ -16,10 +16,16 @@ class Member extends Model
     {
     	return $this->belongsTo('App\User');
     }
+    
 
      public function membertype()
     {
-    	return $this->belongsTo('App\Membertype');
+    	return $this->hasMany('App\Membertype');
+    }
+
+     public function memberpackage()
+    {
+      return $this->hasMany('App\Memberpackage');
     }
     
 }

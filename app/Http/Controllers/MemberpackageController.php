@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Memberpackage;
+use App\User;
+use App\Member;
+use App\Trainer;
+use App\Package;
 use Illuminate\Http\Request;
 
 class MemberpackageController extends Controller
@@ -14,7 +18,12 @@ class MemberpackageController extends Controller
      */
     public function index()
     {
-        //
+        $memberpackages=Memberpackage::all();
+        $users=User::all();
+        $members=Member::all();
+        $packages=Package::all();
+        $trainers=Trainer::all();
+        return view('backend.memberpackage.index',compact('memberpackages','users','members','packages','trainers'));
     }
 
     /**

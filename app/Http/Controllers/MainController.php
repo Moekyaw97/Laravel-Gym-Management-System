@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+// use Carbon\Carbon;
 
 use App\User;
 use App\Member;
@@ -29,7 +30,22 @@ class MainController extends Controller
    public function member(Request $request)
   {
 
-       
+    // insert user
+    $request->validate([
+            "name" => "required",
+            "email" => "required",
+            "password" => "required",
+
+             ]);
+    $user = new User;
+    $user->name=$request->name;
+    $user->email=$request->email;
+    $user->password=Hash::make($request->password);
+    $user->save();
+    $user->assignRole('member'); // model_has_role
+
+
+    // member    
     $request->validate([
             "user_id" => "required",
             "weight" => "required",
@@ -37,18 +53,17 @@ class MainController extends Controller
             "address" => "required",
             "membertype_id"=>"required",  
              ]);
-     
-        $member = new Member;
-        $member->user_id= $request->user_id;
-        $member->weight = $request->weight;
-        $member->phoneno = $request->phoneno;
-        $member->address = $request->address;
-        $member->membertype_id = $request->membertype_id;
-        $member->save();
+    $member = new Member;
+    $member->user_id = $user->id;
+    $member->weight = $request->weight;
+    $member->phoneno = $request->phoneno;
+    $member->address = $request->address;
+    $member->membertype_id = $request->membertype_id;
+    $member->save();
 
         // dd($member);
 
-        return redirect()->route('packageformpage');
+        return redirect()->route('homepage')->with('status', 'Registration Successful , Pls login as member !');
         
   }
   
@@ -65,6 +80,8 @@ class MainController extends Controller
 
   public function packageform()
   {
+    
+     
    
     return view('frontend.package');
 
@@ -72,15 +89,16 @@ class MainController extends Controller
 
   public function package(Request $request)
   {
-    
-        $request->validate([
+
+
+       $request->validate([
             "member_id" => "required",
             "package_id" => "required",
             "trainer_id" => "required",
             "start_date" => "required",
                 "time"   =>"required",  
              ]);
-     
+        
         $memberpackage = new Memberpackage;
         $memberpackage->member_id= $request->member_id;
         $memberpackage->package_id= $request->package_id;
@@ -96,9 +114,10 @@ class MainController extends Controller
     //  
   }
 
-  public function mypackage()
+  public function mypackage($id)
   {
-    return view('frontend.mypackage');
+        $member=Member::where('user_id',$id)->first();
+        return view('frontend.mypackage',compact('member'));
   }
 
   

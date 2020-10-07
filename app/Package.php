@@ -9,8 +9,9 @@ class Package extends Model
      protected $fillable =[
     	'name','price','day','discount','category_id'
     ];
-    public function category()
+    
+     public function memberpackage()
     {
-    	return $this->belongsTo('App\Category');
+    	return $this->hasMany('App\Memberpackage');
     }
 }

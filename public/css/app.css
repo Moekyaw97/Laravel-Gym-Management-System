@@ -72,7 +72,13 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+
+  margin-top: -1px;
+  background-image: url(../assets/img/hero/h1_hero.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -4936,9 +4942,9 @@ input[type=button].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #ffffff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 2px solid red;
   border-radius: 0.25rem;
 }
 

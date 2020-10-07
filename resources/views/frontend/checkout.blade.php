@@ -18,6 +18,24 @@
     </div>
     <!-- Hero End -->
 
-    
+    <section class="product-details spad">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 shadow p-3 mb-5 bg-white rounded">
+                    <div class="row">
+                        <div class="col-12 pt-5 text-center">
+                            <h1>Successfully subscribed the package</h1>
+                            <h2 class="mt-3"> Thanks for belive in us , Enjoy</>
+                        </div>
+                        <div class="col-12 text-center">
+                            <img src="{{ asset('success-tick-dribbble.gif') }}" class="img-fluid">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 @endsection

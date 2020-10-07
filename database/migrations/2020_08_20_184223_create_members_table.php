@@ -15,6 +15,8 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
+           
+           
             $table->unsignedBigInteger('user_id');
            
             $table->text('weight');

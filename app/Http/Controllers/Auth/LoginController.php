@@ -45,11 +45,8 @@ class LoginController extends Controller
        
         switch ($roles[0]) {
             case 'admin':
-                    return 'category';
+                    return 'memberpackage';
                 break;
-            case 'user':
-                    return '/';
-                break; 
             case 'member':
                     return '/packageformpage';
                 break; 
