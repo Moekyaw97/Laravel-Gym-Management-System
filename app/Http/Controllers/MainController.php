@@ -142,6 +142,11 @@ class MainController extends Controller
     return view('frontend.register');
   }
 
+   public function bmi()
+  {
+    return view('frontend.bmi');
+  }
+
 
 
   public function checkout()

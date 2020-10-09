@@ -4,7 +4,7 @@
 
 
 @if (session('status'))
-<div class="alert alert-danger my-1 text-center" style="font-size: 3em;">
+<div class="alert alert-success my-1 text-center" style="font-size: 3em;">
     {{ session('status') }}
 </div>
 @endif
@@ -21,7 +21,11 @@
                             <div class="hero__caption">
                                 <span data-animation="fadeInLeft" data-delay="0.1s">Welcome from MK Fitness</span>
                                 <h1 data-animation="fadeInLeft" data-delay="0.4s">in Myanmar</h1>
+                                @guest
                                 <a href="{{route('memberformpage')}}" class="border-btn hero-btn" data-animation="fadeInLeft" data-delay="0.8s">Get start</a>
+                                
+                                @else
+                                @endif
 
                                
                             </div>

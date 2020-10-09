@@ -117,24 +117,68 @@
 </div>
 
  <div class="form-group mt-10">
-    <div class="row justify-content-center">
+    <div class="pricing-area section-padding40 fix">
+   <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-6 col-sm-6">
+             <label>
+                    
+                        <input type="radio" name="time" class="card-input-element" value="30" checked="checked">
+                        <div class="panel panel-default card-input">
+                        <div class="properties__card">
+                            <div class="properties__caption">
+                                <span class="month">30</span>
+                              <p class="mb-25">Days</p>
+                            </div>
+                        </div>
+                    </div>
+                
+            </label>
+        </div>
 
-   <div class="col-lg-2 col-md-6 col-sm-6">
-        <input type="date" name="start_date" placeholder="Date"
-        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Date'" required
-        class="single-input">
-    </div>
-    <div class="col-lg-4 col-md-6 col-sm-6">
-        <select class="form-control" name="time" placeholder="Days">
-            <option value="30">30 Days</option>
-            <option value="60">60 Days</option>
-            <option value="90">90 Days</option>
-        </select>
-    </div>
-    </div>
+        <div class="col-lg-2 col-md-6 col-sm-6">
+             <label>
+                   
+                        <input type="radio" name="time" class="card-input-element" value="60">
+                        <div class="panel panel-default card-input">
+                        <div class="properties__card">
+                            <div class="properties__caption">
+                                <span class="month">60</span>
+                              <p class="mb-25">Days</p>
+                            </div>
+                        </div>
+                    </div>
+               
+            </label>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-sm-6">
+             <label>
+                    
+                        <input type="radio" name="time" class="card-input-element" value="90">
+                        <div class="panel panel-default card-input">
+                        <div class="properties__card">
+                            <div class="properties__caption">
+                                <span class="month">90</span>
+                              <p class="mb-25">Days</p>
+                            </div>
+                        </div>
+                    </div>
+                
+            </label>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
+            <input type="date" class="calendar" name="start_date" placeholder="Select Date">
+        </div>
+      </div>
+  </div>
 </div>
-    <div class="col-lg-9 col-md-6 col-sm-6 mt-5">
-          <button type="submit" class="btn btn-success float-right">Continue</button>
+
+
+
+</div>
+    <div class="col-lg-9 col-md-6 col-sm-6 mt-5 text-right" >
+          <button type="submit" class="border-btn hero-btn ">Continue</button>
     </div>
   
     </form>

@@ -8,6 +8,10 @@
     <title> @yield('title') </title>  
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{--  dropdown--}}
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+    
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicon.ico')}}">
 
@@ -31,7 +35,7 @@
 
 </head>
 
-<body class="black-bg">
+<body class="wall-bg">
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -63,8 +67,9 @@
                                     <li><a href="{{asset('/trainerpage')}}">Trainer</a></li>
                                     <li><a href="{{asset('/membershippage')}}">Membership</a></li>
                                    {{--  <li><a href="{{asset('/membertypepage')}}">Package</a></li> --}}
+                                   <li><a href="{{asset('/bmipage')}}">BMI Calculator</a></li>
                                     
-                                    <li><a href="{{asset('/checkoutpage')}}">Checkout</a></li>
+                                    
                                     
 
                                     
@@ -77,6 +82,7 @@
                                     <li><a href="{{asset('/login')}}">Login</a></li>
                                  
                                     @else
+                                    <li><a href="{{asset('/packageformpage')}}">Package</a></li>
                                     <li><a href="{{route( 'mypackagepage',Auth::user()->id )}}">My Package</a></li>
                                      <li><a href=""> {{ Auth::user()->name }}'s Account</a></li>
                                      <span class="arrow_carrot-down">
@@ -95,7 +101,7 @@
                         </div>          
                         <!-- Header-btn -->
                         <div class="header-btns d-none d-lg-block f-right">
-                           <a href="{{asset('/contactpage')}}" class="btn">Contact me</a>
+                           <a href="{{asset('/contactpage')}}" class="border-btn hero-btn">Contact me</a>
                        </div>
                        <!-- Mobile Menu -->
                        <div class="col-12">
@@ -129,7 +135,7 @@
                         <div class="single-footer-caption mb-50 text-center">
                             <!-- logo -->
                             <div class="footer-logo wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                                <a href="{{asset('/')}}"><img src="{{asset('assets/img/logo/logo.png')}}" alt=""></a>
+                                <a href="#"><img src="{{asset('assets/img/logo/logo.png')}}" alt=""></a>
                             </div>
                             <!-- Menu -->
                             <!-- Header Start -->
@@ -140,12 +146,9 @@
                                         <div class="main-menu main-menu2 text-center">
                                             <nav>
                                                 <ul>
-                                                    <li><a href="index.html">Home</a></li>
-                                                    <li><a href="about.html">About</a></li>
-                                                    <li><a href="courses.html">Courses</a></li>
-                                                    <li><a href="pricing.html">Pricing</a></li>
-                                                    <li><a href="gallery.html">Gallery</a></li>
-                                                    <li><a href="contact.html">Contact</a></li>
+                                                    <li><a href="{{asset('/')}}">Home</a></li>
+                                                
+                                                    <li><a href="{{asset('/contactpage')}}">Contact</a></li>
                                                 </ul>
                                             </nav>
                                         </div>   
@@ -156,7 +159,7 @@
                             <!-- social -->
                             <div class="footer-social mt-30 wow fadeInUp" data-wow-duration="3s" data-wow-delay=".8s">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-pinterest-p"></i></a>
                             </div>
                         </div>
@@ -169,7 +172,7 @@
                     <div class="col-lg-12">
                         <div class="footer-copy-right text-center">
                             <p>
-                              Copyright &copy;All rights reserved | This template is made by <i class="fa fa-heart" aria-hidden="true"></i><a href="#" target="_blank"> &nbsp;Moe Thiha Kyaw</a>
+                              Copyright &copy;All rights reserved | This template is made by <i class="fa fa-heart" aria-hidden="true"></i><a href="#" target="_blank"> &nbsp;Player 99</a>
                               </p>
                           </div>
                       </div>
@@ -218,6 +221,7 @@
 <!-- Jquery Plugins, main Jquery -->  
 <script src="{{asset('./assets/js/plugins.js')}}"></script>
 <script src="{{asset('./assets/js/main.js')}}"></script>
+{{-- start-date --}}
 
 </body>
 

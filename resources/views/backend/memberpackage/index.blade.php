@@ -22,17 +22,19 @@
 					<th>Package</th>
 					<th>Trainer</th>
 					<th>Start Date</th>
+					<th>Remaining Date</th>
 				</tr>
 			</thead>
 			<tbody> 
 				@php
 				use App\Package;
 				$packages=Package::all();
+				$i=1;
 				@endphp
 
 				@foreach($memberpackages as $row)
 				<tr>
-					<td>{{$row->id}}</td>
+					<td>{{$i++}}</td>
 					<td>{{$row->member->user->name}}</td>
 					<td>{{$row->member->weight}}</td>
 					<td>{{$row->member->address}}</td>
@@ -40,6 +42,7 @@
 					<td>{{$row->trainer->name}}</td>
 				
 					<td>{{$row->start_date}}</td>
+					<td>{{$row->time}}</td>
 
 
 					</tr>

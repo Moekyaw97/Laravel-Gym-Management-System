@@ -39,6 +39,8 @@ Route::get('/membershippage','MainController@membership')->name('membershippage'
 
 Route::get('contactpage','MainController@contact')->name('contactpage');
 
+Route::get('bmipage','MainController@bmi')->name('bmipage');
+
 // Route::get('/registerpage','MainController@register')->name('registerpage');
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -58,12 +60,12 @@ Route::get('/packageformpage','MainController@packageform')->name('packageformpa
 
 Route::post('/packagepage','MainController@package')->name('packagepage');
 
- Route::get('/checkoutpage','MainController@checkout')->name('checkoutpage');
+
 
 Route::group(['middleware' => ['role:member']], function () {
 
 
-	
+Route::get('/checkoutpage','MainController@checkout')->name('checkoutpage');
 
 	
 

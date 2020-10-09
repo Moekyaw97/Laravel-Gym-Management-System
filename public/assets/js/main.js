@@ -220,3 +220,57 @@ $('.radio').removeClass('selected');
 $(this).addClass('selected');
 });
 });
+
+// bmi calculator
+
+
+document.getElementById("calc").addEventListener("submit", calculate);  
+  
+function calculate(e){
+
+  var feet = Number(document.getElementById("feet").value);
+  var inches = Number(document.getElementById("inches").value);
+  var weight = Number(document.getElementById("weight").value);  
+  var height=Number(document.getElementById("feet").value*12)+Number(document.getElementById("inches").value);
+  var squareHeight = height * height;
+  var bmi = (weight/squareHeight) * 703;
+  e.preventDefault();
+  document.getElementById("result").innerHTML = bmi.toFixed(2);
+
+
+
+
+    
+  if(bmi <= 18.5) {
+    document.getElementById("message").innerHTML = "Underweight!";
+   return;
+  }
+    else if (bmi <= 24.9) {
+    document.getElementById("message").innerHTML = "Normal weight!";
+  return;
+  }
+  
+  else if (bmi <= 27.3) {
+    document.getElementById("message").innerHTML = "Slightly overweight!";
+  return;
+  }
+  
+  else if (bmi <= 32.3) {
+    document.getElementById("message").innerHTML = "Overweight!";
+  return;
+  }
+  
+  else if (bmi <= 45.0) {
+    document.getElementById("message").innerHTML = "Obese!";
+  return;
+  }
+  
+  else if (bmi => 45.1) {
+      document.getElementById("message").innerHTML = "Extremely obese!";
+  return;
+  } 
+  }
+ // mypackage
+ 
+
+

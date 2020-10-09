@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                                 
-                              <a href="{{asset('/formpage')}}" class="border-btn border-btn2">Join Now</a>
+                              <a href="{{asset('/memberformpage')}}" class="border-btn border-btn2">Join Now</a>
                             </div>
                         </div>
                     </div>                 
@@ -115,7 +115,7 @@
                                         <p>Zumba and Yoga classes are only available</p>
                                     </div>
                                 </div>
-                                 <a href="{{asset('/formpage')}}" class="border-btn border-btn2">Join Now</a>
+                                 <a href="{{asset('/memberformpage')}}" class="border-btn border-btn2">Join Now</a>
                               
                             </div>
                         </div>
@@ -164,7 +164,7 @@
                                         <p>All classes are available</p>
                                     </div>
                                 </div>
-                                <a href="{{asset('/formpage')}}" class="border-btn border-btn2">Join Now</a>
+                                <a href="{{asset('/memberformpage')}}" class="border-btn border-btn2">Join Now</a>
                             </div>
                         </div>
                     </div>

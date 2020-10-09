@@ -7,8 +7,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="hero-cap hero-cap2 pt-70">
-                            <h2>My pacakge</h2>
+                        <div class="hero-cap hero-cap2 ">
+                            <h2>My Pacakge</h2>
                         </div>
                     </div>
                 </div>
@@ -16,47 +16,76 @@
         </div>
     </div>
     <!-- Hero End -->
-    @php  
-  
-    @endphp
 
-    <section class="pricing-area section-padding40 fix">
-        <div class="container">
-            <div class="row mt-5">
+{{-- <div class="container">
+    <div class="row">
+    <table class="table table-dark table-borderless tb">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{$member->user->name}}</th>
+      <td>{{$member->weight}} lbs</td>
+      <td>{{$member->address}}</td>
+       <td>{{$member->phoneno}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div> --}}
 
+<div class="container">
+     <div class="row justify-content-center mt-5 bb">
+      <form id="pack">
+        <div class="justify-content-center" id="packtb">
+  <label>{{$member->user->name}}</label>
+  <label>{{$member->weight}} lbs</label>
+  <label>{{$member->address}}</label>
+  <label>{{$member->user->email}}</label>
+  <label>{{$member->phoneno}}</label>
+</div>
+<div id="packline"></div>
+    <table style="width:100%" class="mt-5">
    
+      <thead id="packtb">
+         <tr>
+      <th>Packages</th>
+      <th>Price</th>
+      <th>Trainer</th>
+      <th>Remaining days</th>
+      <th>Start Date</th>
+       </tr>
+      </thead>
    
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                        <div class="properties__card">
-                            <div class="properties__caption">
-                             <p>Name :<span class="month">{{$member->user->name}}</span></p><br>
-                              <p>Phone No :<span class="month">{{$member->phoneno}}</span></p> 
-                                <p>Weight : <span class="month">{{$member->weight}}</span><span> lbs</span></p>
-                             <p>Address :<span class="month">{{$member->address}}</span></p><br> 
-                          </div>
-                        </div>
-                    </div>
-                </div>
-              @foreach($member->memberpackage as $memberpackage)
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="properties mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                        <div class="properties__card">
-                            <div class="properties__caption">
-                              <p>Pacakge :<span class="month">{{$memberpackage->package->name}}</span></p><br>
-                              <p>Price :<span class="month">{{$memberpackage->package->price}}</span></p><br>
-                              <p>Days :<span class="month">{{$memberpackage->package->day}}</span></p><br>
-                              <p>Trainer :<span class="month">{{$memberpackage->trainer->name}}</span></p><br>
-                              <p>Start Date :<span class="month">{{$memberpackage->start_date}}</span></p>
-                          </div>
-                        </div>
-                    </div>
-                </div>
+
+  @foreach($member->memberpackage as $memberpackage)
+  <tbody class="text-center">
+    <tr>
+     
+       <td>{{$memberpackage->package->name}}</td>
+       <td>{{$memberpackage->package->price}}</td>
+       <td>{{$memberpackage->trainer->name}}</td>
+       <td>{{$memberpackage->package->day}}</td> 
+       <td>{{$memberpackage->start_date}}</td>
+      
+    </tr>
+  </tbody>
+   @endforeach
+</table>
+
+</form>
+</div>
+</div>
+
  
-    @endforeach
-</div>
-</div>
-</section>
+
+
 
     
 

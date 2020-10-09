@@ -70,10 +70,9 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar w-25" src="#" alt="User Image">
-        <div>
-          <p class="app-sidebar__user-name">Admin</p>
-          <p class="app-sidebar__user-designation">Backend Developer</p>
+      <div class="app-sidebar__user"> <img class="app-sidebar__user-avatar" src="{{asset('assets/img/comment/comment_2.png')}}" style="width: 50px; height: 50px; object-fit: cover;" alt="User Image">
+          <p class="app-sidebar__user-name" style="color: #ffffff;">Admin<br>Developer</p>
+          
         </div>
       </div>
      <ul class="app-menu">
