@@ -22,14 +22,15 @@
 					<th>Package</th>
 					<th>Trainer</th>
 					<th>Start Date</th>
-					<th>Remaining Date</th>
+					<th>Package-Days</th>
+					<th>Use-Days</th>
+					<th>Remain-Days</th>
 				</tr>
 			</thead>
 			<tbody> 
 				@php
-				use App\Package;
-				$packages=Package::all();
 				$i=1;
+
 				@endphp
 
 				@foreach($memberpackages as $row)
@@ -40,11 +41,26 @@
 					<td>{{$row->member->address}}</td>
 					<td>{{$row->package->name}}</td>
 					<td>{{$row->trainer->name}}</td>
-				
 					<td>{{$row->start_date}}</td>
 					<td>{{$row->time}}</td>
+					@php
+					$start_date = strtotime($row->start_date); 
+					$end_date = strtotime($current); 
+					$diff= ($end_date - $start_date)/60/60/24;
+					$remaindays=($row->time - $diff); 
+					
+					
+					
+					@endphp
+					<td>{{$diff}}</td>
 
+					@if ($remaindays >0)
+					<td>{{$remaindays}}</td>
 
+					@else
+						<td style="color: #ff0000;">Passed </td>
+					@endif	
+								
 					</tr>
 				@endforeach						
 				

@@ -126,7 +126,7 @@
 
   <footer>
     <!--? Footer Start-->
-    <div class="footer-area black-bg">
+    <div class="footer-area foot-bg">
         <div class="container">
             <div class="footer-top footer-padding">
                 <!-- Footer Menu -->

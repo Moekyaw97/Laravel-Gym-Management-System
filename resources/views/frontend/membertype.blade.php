@@ -22,7 +22,6 @@
  <!-- Courses area start -->
     <section class="pricing-area section-padding40 fix mt-5">
         <div class="container">         
-        
                 <div class="card">
                 <div class="radio-group row justify-content-between px-3">
                     

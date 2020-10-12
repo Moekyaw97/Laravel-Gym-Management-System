@@ -18,33 +18,37 @@
         </div>
     </div>
     <!-- Hero End -->
+<div class="container">              	 
+	 	<div class="row justify-content-center">
+	 		<div class="col-lg-8 col-md-6 col-sm-6 bb">
+                	
+	 				<div class="firstLabel">
+	 					<label>Your height: </label>
+	 					<input class = "values" type="text"  id="feet" required>&nbsp;ft
+	 					<input class = "values" type="text"  id="inches" required>&nbsp;inches
+	 				</div>
+	 				<br>
+	 				<div>
+	 					<label>Your weight:</label>
+	 					<input class = "values" type="text" id="weight" required >&nbsp;lbs
+	 				</div>
+	 				<br>
 
-<div class="container">
-  <div class="row justify-content-center mt-5 bb">
-<form id="calc" >
-	<div class="firstLabel">
-	<label>Your height: </label>
-		<input class = "values" type="text"  id="feet" required>&nbsp;ft
-		<input class = "values" type="text"  id="inches" required>&nbsp;inches
-	</div>
-		<br>
-	<div>
-		<label>Your weight:</label>
-		<input class = "values" type="text" id="weight" required >&nbsp;lbs
-	</div>
-		<br>
-	
-	<button id="btnn" type="submit" class="bttn">Calculate</button>
-	<div>
-		<h4>Your BMI:</h4>
-		<p id="result"></p>
-		
-	</div>
+	 				<button id="btnn" type="submit" class="bttn">Calculate</button>
+	 				<div>
+	 					<h4>Your BMI:</h4>
+	 					<p id="result"></p>
 
-	<p id="message"></p>
-	</form>
-</div>
-</div>
+	 				</div>
+	 				<p id="message" class="text-center"></p>
+                	 			
+                </div>
+                
+                </div>
+         
+        </div>
+    </div>
+
  
    
 @endsection

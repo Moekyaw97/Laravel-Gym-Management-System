@@ -17,33 +17,11 @@
     </div>
     <!-- Hero End -->
 
-{{-- <div class="container">
-    <div class="row">
-    <table class="table table-dark table-borderless tb">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Weight</th>
-      <th scope="col">Address</th>
-      <th scope="col">Phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">{{$member->user->name}}</th>
-      <td>{{$member->weight}} lbs</td>
-      <td>{{$member->address}}</td>
-       <td>{{$member->phoneno}}</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div> --}}
-
 <div class="container">
-     <div class="row justify-content-center mt-5 bb">
-      <form id="pack">
-        <div class="justify-content-center" id="packtb">
+     <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-6 col-sm-6 pp">
+      <form>
+        <div  id="packtb">
   <label>{{$member->user->name}}</label>
   <label>{{$member->weight}} lbs</label>
   <label>{{$member->address}}</label>
@@ -65,7 +43,7 @@
    
 
   @foreach($member->memberpackage as $memberpackage)
-  <tbody class="text-center">
+  <tbody>
     <tr>
      
        <td>{{$memberpackage->package->name}}</td>
@@ -78,7 +56,7 @@
   </tbody>
    @endforeach
 </table>
-
+</div>
 </form>
 </div>
 </div>

@@ -7,6 +7,7 @@ use App\User;
 use App\Member;
 use App\Trainer;
 use App\Package;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MemberpackageController extends Controller
@@ -16,6 +17,7 @@ class MemberpackageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $memberpackages=Memberpackage::all();
@@ -23,7 +25,9 @@ class MemberpackageController extends Controller
         $members=Member::all();
         $packages=Package::all();
         $trainers=Trainer::all();
-        return view('backend.memberpackage.index',compact('memberpackages','users','members','packages','trainers'));
+        $current = Carbon::now()->toDateString();
+        
+        return view('backend.memberpackage.index',compact('memberpackages','users','members','packages','trainers','current'));
     }
 
     /**
